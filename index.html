@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+  <div class="page">
+    <div class="container flexcenter">
+      <div class="wrapper grid">
+        <div class="circle-design flexcol">
+          <div class="med-text header">
+            <h3>Your Result</h3>
+          </div>
+          <div class="circle flexcenter">
+            <div class="state flexcol">
+              <div class="lg-text">
+                <h2>76</h2>
+              </div>
+              <div class="sm-text">
+                <h5>of 100</h5>
+              </div>
+            </div>
+          </div>
+          <div class="med-text med-lg">
+            <h3>Great</h3>
+          </div>
+          <div class="sm-text">
+            <p>You Scored Higher than 65% of the people who have taken these tasks</p>
+          </div>
+        </div>
+
+        <!-- right part -->
+        
+        <div class="info flexcol">
+          <div class="med-text">
+            <h3>Summary</h3>
+          </div>
+          <div class="states flexcol">
+            <div class="item flexitem">
+              <div class="title flexitem">
+                <div class="icon-small">
+                  <img src="" alt="">
+                </div>
+                <h5></h5>
+              </div>
+              <div class="score">
+                <span></span> / 100
+              </div>
+            </div>
+            <div class="item flexitem">
+              <div class="title flexitem">
+                <div class="icon-small">
+                  <img src="" alt="">
+                </div>
+                <h5></h5>
+              </div>
+              <div class="score">
+                <span></span> / 100
+              </div>
+            </div>
+            <div class="item flexitem">
+              <div class="title flexitem">
+                <div class="icon-small">
+                  <img src="" alt="">
+                </div>
+                <h5></h5>
+              </div>
+              <div class="score">
+                <span></span> / 100
+              </div>
+            </div>
+            <div class="item flexitem">
+              <div class="title flexitem">
+                <div class="icon-small">
+                  <img src="" alt="">
+                </div>
+                <h5></h5>
+              </div>
+              <div class="score">
+                <span></span> / 100
+              </div>
+            </div>
+          </div>
+          <div class="btn-link"><a href="#">Continue</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    fetch("data.json")
+    .then((data) => data.json())
+    .then((data) => {
+
+      const items = document.querySelectorAll(".item");
+
+      items.forEach((item, index) => {
+
+        item.querySelector(".icon-small img").src = data[index].icon;
+        item.querySelector(".title h5").innerText = data[index].category;
+        item.querySelector(".score span").innerText = data[index].score;
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
